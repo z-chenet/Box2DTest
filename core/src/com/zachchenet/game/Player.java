@@ -133,7 +133,7 @@ public class Player extends Sprite implements  GestureListener, Screen {
 			collisionY = collidesBottom();
 			if(collisionY){
 				setY(oldY);
-				this.dispose();
+				//this.dispose();
 			}
 			else{
 			tempY = getY();
@@ -147,7 +147,7 @@ public class Player extends Sprite implements  GestureListener, Screen {
 			collisionY = collidesTop();
 			if(collisionY){
 				setY(oldY);
-				this.dispose();
+				//this.dispose();
 				//tempY = getY();
 				//tempY -= deltaY;
 				//setY(tempY);

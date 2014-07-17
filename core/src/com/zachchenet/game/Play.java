@@ -27,9 +27,12 @@ public class Play implements Screen {
 		
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
-		camera.setToOrtho(false, w, h);
-		camera.update();
 		
+		camera.position.set(player.getX() + player.getWidth(), player.getY() + player.getHeight(), 0);
+		//camera.setToOrtho(false, w, h);
+		//camera.zoom /= 2;
+		camera.update();
+
 		renderer.setView(camera);
 		
 		renderer.render();
@@ -43,6 +46,8 @@ public class Play implements Screen {
 	@Override
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
+		camera.viewportWidth = width / 2;
+		camera.viewportHeight = height / 2;
 
 	}
 
@@ -55,6 +60,8 @@ public class Play implements Screen {
 		
 		camera = new OrthographicCamera();
 				
+		camera.zoom *= 2.5;
+		
 		player = new Player(new Sprite(new Texture("sprite.png")), (TiledMapTileLayer) map.getLayers().get(0));
 		player.setPosition(50, 800 / 2 - 64 / 2);
 		
