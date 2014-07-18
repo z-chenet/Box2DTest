@@ -2,7 +2,6 @@ package com.zachchenet.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.input.GestureDetector;
@@ -13,12 +12,10 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Player extends Sprite implements  GestureListener, Screen {
 
-	private Vector2 velocity = new Vector2();
 
 	
 	float increment;
 	
-	private Animation still, left, right;
 	private TiledMapTileLayer collisionLayer;
 
 	private String blockedKey = "blocked";
