@@ -115,7 +115,12 @@
  </layer>
  <layer name="obstacles" width="200" height="40">
   <data encoding="base64" compression="zlib">
-   eJztmlFOxDAMRPu74hJwMzgod4NVVa20iK3tepxxMk9C/Cyp62TykhXbJoSI8nnbtq/b4zfD2Miasp6LrnFUDxioePfvt/3njPff53/cHr8ziY6NrOkVTPkY1QMGmPIhf8Sei16/8gdHPuSPB/IHB0z5kD9iz5U/cDDlYwV/WPvN5A/lgyMf3loq1lB2f6x5656PqkwxvrsXlD+Omi2flz/iRHpQdWdZKR/eWo7eyx98a0T+sIM+XyH3qOz+yB+5rJQPb089/oiSPc/yx/jamMa/w3A/jyJ/xPYI5cMO+n6+uj/QRGrR+coO+n5umQOW+znCH2jQ/rjyrozu9MJwvoq+56h1ypQPtD+urMGV/BG9nyP9UXVOeIYpH/KH/JFVUxZM93P091dX1iB6/Xb2h4eZ/cG4h1a4/erfsqD/3/WPV7X/WkD740qPR+1fmTDkg+V8Za2DyR8RZrmfV6Dzlb8OtD+Y7iwzrPErrOIPy2dZ/MG0JivOSEzv+4w1H0gq/GH5rLUO9P2Wab1U1ML0vs+g8sHWV8tnEeerSB+Y7rVs81gNKh9Mc2ytx1rzSv6Y7XzlfVZnf2TXI3/8ZTZ/sOSDaY7vjMrr7P7IqHWGfHjHZZrjO6Py2j0fZ7UoHzve9cXm5U7+YHPvKzJqnSEf3nEr5jj7+10E3f1xhvyxg/RHtD+z+qNTPuSP2LgVe3sHf0Se2ykf8seO/BFjdn8oH7FxPRyZQ+aj050X2evssZWPHeT6OmpFnq9W25P/I3seM2qt3Lu8z2LwR8X5qhOMvUaOJ39gxu50ZvIgf+CQP/rD2GvkeDP4Q4iV+QHYIhGB
+   eJztmEFyxCAMBH3dXyQ/S/7/icTlcu0hlV2QGbkF05dcvDAIDQPZNmNMlK/Htn0/nn8JYys1jZpXrfGuGhAgrf3jd/7Px/MvYWylpleQ/HFXDQiQ/OH8iM2r7l9Sj2RDWrvz44nzgwHJH86P2LzODx2kta+QH631JuUHqUeyIa29V0tGD42uT6vfqvsjq6+Ia1fRe1afmlu+d37EidQg682ykj96tZy1d37wesT5cb+WnvzI0jRqPJI/nB8Mf/TWtCc/sjSNGo/kD+cHwx/K93mWplHjkfwROSPsj/FE3+er54eaiBbfr+7X0rMHlPe5Ij/UqPPjylqJ2alCeb+KrvOuPiX5Q50fV3pwpfyIvs+V+XHX+VF5X3acH+NxfsTmJZ6hGXtz9bctVD+nWpk5P4hnaEa2X/1tNZRrnfl9TjxDs/xNuv+oUfqDcr9q1UHKjwizvM9JrHC/ouQH6c2yUo9foXp+tHxLyQ9ST2bckUjrJZKRHy3ftupQv29J/ZKhhbTeLGh1bflWcb+K1IH0rqXt4yyQ9rhVT6vmlfJjtvsVpbYUHT16nB9/mS0/KH1J2uOdu+oye36M0DqDP3rHJe3xzl1+re6Pd1rsj4Pe/qLlcqX8oGXvK0ZoncEfveNm7PHo/+8qqJ4f73B+HCjzI6p51vyo5A/nR2zcjLO9Qn5E5q3kD+fHgfMjxuz5YX9ox905Paf0R6U3r7LWo8e2Pw6U/XVqVd6vVjuT/2P0Po7Qmnl2qeYinmmVer4HYq2V4zk/NGNXujP14PzQ4fyoD7HWyvFmyA9jVuYHeQrWEg==
+  </data>
+ </layer>
+ <layer name="end" width="200" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt0zENACAAwDB+/MvBGwcnWUBAm0zCxgCAf2uegJs/oPkDmj+g+QOaP6D5A5o/oPkDmj+g+QOaP6D5A5o/oPkDmj+g+QOaP6D5A5o/oPkDmj+g+QOaP6D5A5o/oPkDmj+g+QOaP6D5A5o/oPkDmj+g+QOaP6D5A5o/4G0D3Bg7YQ==
   </data>
  </layer>
 </map>

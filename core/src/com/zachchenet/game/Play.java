@@ -19,18 +19,18 @@ public class Play implements Screen {
 	
 	private Player player;
 	
+	float mapX;
+	
 	
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
-		float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
 		
-		camera.position.set(player.getX() + player.getWidth(), player.getY() + player.getHeight(), 0);
-		//camera.setToOrtho(false, w, h);
-		//camera.zoom /= 2;
+		camera.position.set(mapX, player.getY() + player.getHeight(), 0);
+		player.setPosition(mapX, player.getY());
+		mapX += 3;
 		camera.update();
 
 		renderer.setView(camera);
@@ -55,6 +55,7 @@ public class Play implements Screen {
 	public void show() {
 
 		map = new TmxMapLoader().load("testMap.tmx");
+		mapX = 0;
 		
 		renderer = new OrthogonalTiledMapRenderer(map);
 		

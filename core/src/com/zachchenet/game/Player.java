@@ -48,9 +48,14 @@ public class Player extends Sprite implements  GestureListener, Screen {
 		//increment = collisionLayer.getTileHeight();
 		//increment = getHeight() < increment ? getHeight() / 2 : increment / 2;
 		
-		if(collisionY){
-			setY(oldY);
+		if(getX() > 1){
+			//collisionX = collidesRight();
+			if(collisionX){
+			setX(oldX);
+			}
 		}
+		
+		
 		
 	}
 	
