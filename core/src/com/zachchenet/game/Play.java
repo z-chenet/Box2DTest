@@ -18,6 +18,8 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.ChainShape;
+import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
@@ -41,19 +43,27 @@ public class Play implements Screen {
 	private Body playerBody;
 	
 	
+	
+	
 	@Override
 	public void render(float delta) {
+		world.step(1/60f, 6, 2);
+
+		
+		//int count = world.getContactCount();
+		//System.out.println("contact count:" + count);
+		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		
 		camera.position.set(mapX, player.getY() + player.getHeight(), 0);
 		player.setPosition(mapX, player.getY());
-		playerBody.setTransform(player.getX() + player.getWidth() / 2, player.getY() + player.getHeight() / 2, 0);
-		Array<Body> bi = new Array<Body>();
-		world.getBodies(bi);
+		playerBody.setTransform(player.getX() + player.getHeight() / 5,
+				player.getY() - player.getHeight() / 4, 0);
 		
-		mapX += 3;
+		
+		mapX += delta*60;
 		camera.update();
 
 		renderer.setView(camera);
@@ -65,7 +75,6 @@ public class Play implements Screen {
 		player.draw(renderer.getSpriteBatch());
 		renderer.getSpriteBatch().end();
 		
-		world.step(1/60f, 6, 2);
 		
 	}
 
@@ -105,16 +114,19 @@ public class Play implements Screen {
 		//	creates the bodys and fixtures
 		BodyDef bdef = new BodyDef();
 		FixtureDef fdef = new FixtureDef();
-		ChainShape shape = new ChainShape();
+		//ChainShape shape = new ChainShape();
+		PolygonShape square = new PolygonShape();
+		
 		
 		//	making the box for player
-		bdef.position.set(player.getX(), player.getY());
+		bdef.position.set(player.getX() + player.getWidth() / 2,
+				player.getY() + player.getHeight() / 2);
 		bdef.position.set(0, 0);
 		bdef.type = BodyType.DynamicBody;
 		playerBody = world.createBody(bdef);
-		playerBody.setUserData("player");
+		//playerBody.setUserData("player");
 		
-		Vector2[] v2 = new Vector2[5];
+		/*Vector2[] v2 = new Vector2[5];
 		v2[0] = new Vector2(
 				-player.getWidth() / 2, -player.getHeight() / 2);
 		v2[1] = new Vector2(
@@ -125,10 +137,12 @@ public class Play implements Screen {
 				player.getWidth()/2, -player.getHeight()/2);
 		v2[4] = new Vector2(
 				-player.getWidth() / 2, -player.getHeight() / 2);
-		shape.createChain(v2);
+		shape.createChain(v2);*/
 		
-		//shape.setAsBox(player.getWidth() / 2, player.getHeight() / 2);
-		fdef.shape = shape;
+		square.setAsBox(player.getWidth() / 2,
+				player.getHeight() / 2,
+				new Vector2(0, 100), 0);
+		fdef.shape = square;
 		//fdef.isSensor = true;
 		fdef.filter.categoryBits = 4;
 		fdef.filter.maskBits = 2;
@@ -170,7 +184,6 @@ public class Play implements Screen {
 				cs.createChain(v);
 				
 				fdef.shape = cs;
-				fdef.isSensor = false;
 				fdef.filter.categoryBits = 2;
 				fdef.filter.maskBits = 4;
 				
@@ -181,8 +194,6 @@ public class Play implements Screen {
 		
 		
 		
-		
-		//Gdx.input.setInputProcessor(player);
 	}
 
 	@Override

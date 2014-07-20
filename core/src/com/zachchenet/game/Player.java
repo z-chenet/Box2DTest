@@ -45,17 +45,12 @@ public class Player extends Sprite implements  GestureListener, Screen {
 		//increment = collisionLayer.getTileHeight();
 		//increment = getHeight() < increment ? getHeight() / 2 : increment / 2;
 		
-		if(getX() > 1){
-			//collisionX = collidesRight();
-			if(collisionX){
-			setX(oldX);
-			}
-		}
+		
 		
 		
 		
 	}
-	
+	/*
 	private boolean isCellBlocked(float x, float y) {
 		Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
 		return cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey(blockedKey);
@@ -88,7 +83,7 @@ public class Player extends Sprite implements  GestureListener, Screen {
 			if(isCellBlocked(getX() + step, getY()))
 				return true;
 		return false;
-	}
+	}*/
 	
 	public TiledMapTileLayer getCollisionLayer() {
 		return collisionLayer;
@@ -126,42 +121,42 @@ public class Player extends Sprite implements  GestureListener, Screen {
 	public boolean pan(float x, float y, float deltaX, float deltaY) {
 		float tempX , tempY;
 		
-		increment = collisionLayer.getTileHeight();
-		increment = getHeight() < increment ? getHeight() / 2 : increment / 2;
+		//increment = collisionLayer.getTileHeight();
+		//increment = getHeight() < increment ? getHeight() / 2 : increment / 2;
 		
 		oldY = getY();
 		//going down
 		if(deltaY > 0){
-			collisionY = collidesBottom();
-			if(collisionY){
-				setY(oldY);
+			//collisionY = collidesBottom();
+			//if(collisionY){
+			//	setY(oldY);
 				//this.dispose();
-			}
-			else{
+			//}
+			//else{
 			tempY = getY();
 			tempY -= deltaY;
 			setY(tempY);
-			}
+			//}
 		
 		}
 		//going up
 		else if(deltaY < 0){
-			collisionY = collidesTop();
-			if(collisionY){
-				setY(oldY);
+			//collisionY = collidesTop();
+			//if(collisionY){
+			//	setY(oldY);
 				//this.dispose();
 				//tempY = getY();
 				//tempY -= deltaY;
 				//setY(tempY);
-			}
-			else{
+			//}
+			//else{
 			//setY(oldY);
 			tempY = getY();
 			tempY -= deltaY;
 			setY(tempY);
 			}
 			
-		}
+		//}
 			
 		
 		
