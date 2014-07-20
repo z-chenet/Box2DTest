@@ -26,7 +26,7 @@ public class Player extends Sprite implements  GestureListener, Screen {
 	public Player(Sprite sprite, TiledMapTileLayer collisionLayer) {
 		super(sprite);
 		this.collisionLayer = collisionLayer;
-		this.setSize(50, 128);
+		this.setSize(43, 64);
 		GestureDetector gd = new GestureDetector(this);
 		Gdx.input.setInputProcessor(gd);
 	}

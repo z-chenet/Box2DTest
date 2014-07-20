@@ -18,16 +18,22 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.ChainShape;
-import com.badlogic.gdx.physics.box2d.Contact;
-import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
 
 
 public class Play implements Screen {
-
+	enum GameState
+		{
+			PLAYING,
+			PAUSE,
+			DEAD,
+			WON
+		}
+	
+	private GameState state;
+	
 	TiledMap map;
 	private OrthogonalTiledMapRenderer renderer;
 	private OrthographicCamera camera;
@@ -45,22 +51,12 @@ public class Play implements Screen {
 	
 	
 	
-	@Override
-	public void render(float delta) {
-		world.step(1/60f, 6, 2);
-
-		
-		//int count = world.getContactCount();
-		//System.out.println("contact count:" + count);
-		
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-		
+	
+	public void isPlaying(float delta){
 		camera.position.set(mapX, player.getY() + player.getHeight(), 0);
 		player.setPosition(mapX, player.getY());
-		playerBody.setTransform(player.getX() + player.getHeight() / 5,
-				player.getY() - player.getHeight() / 4, 0);
+		playerBody.setTransform(player.getX() + player.getWidth() / 2 ,
+				player.getY()  - player.getHeight() / 2, 0);
 		
 		
 		mapX += delta*60;
@@ -74,7 +70,24 @@ public class Play implements Screen {
 		renderer.getSpriteBatch().begin();
 		player.draw(renderer.getSpriteBatch());
 		renderer.getSpriteBatch().end();
+	}
+	
+	@Override
+	public void render(float delta) {
+		world.step(1/60f, 6, 2);
+
 		
+		
+		//int count = world.getContactCount();
+		//System.out.println("contact count:" + count);
+		
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
+		switch(state){
+		case PLAYING:
+			isPlaying(delta);
+		}
 		
 	}
 
@@ -141,7 +154,7 @@ public class Play implements Screen {
 		
 		square.setAsBox(player.getWidth() / 2,
 				player.getHeight() / 2,
-				new Vector2(0, 100), 0);
+				new Vector2(0, 64), 0);
 		fdef.shape = square;
 		//fdef.isSensor = true;
 		fdef.filter.categoryBits = 4;
@@ -191,7 +204,7 @@ public class Play implements Screen {
 			}
 		}
 
-		
+		state = GameState.PLAYING;
 		
 		
 	}
